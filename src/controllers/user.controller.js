@@ -329,7 +329,7 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
     {
       $lookup: {
         from: "subscriptions",
-        localFilePath: "_id",
+        localField : "_id",
         foreignField: "channel",
         as: "subscribers"
       }
@@ -337,7 +337,7 @@ const getUserChannelProfile = asyncHandler(async(req, res) => {
     {
       $lookup: {
         from: "subscriptions",
-        localFilePath: "_id",
+        localField : "_id",
         foreignField: "subscriber",
         as: "subscribedTo"
       }
@@ -428,7 +428,7 @@ const getWatchHistory = asyncHandler(async (req, res) => {
   return res.status(200).json(
     new ApiResponse(
       200, 
-      "watch history successfully",
+      "Get watch history successfully",
       user[0].watchHistory
     )
   )
